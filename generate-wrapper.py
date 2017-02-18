@@ -1,6 +1,7 @@
 import os
 import subprocess
 import jinja2
+import sys
 
 sbsbaker_exec = None
 
@@ -39,8 +40,16 @@ def sbsbaker_get_commands():
 	return cmds
 
 
-
 def main():
+	if len(sys.argv) != 2:
+		print("Usage: " + sys.argv[0] + " [path to batch tools]")
+		return 1
+
+	global sbsbaker_exec
+
+	tools_path = sys.argv[1]
+	sbsbaker_exec = os.path.join(tools_path, "sbsbaker")
+
 	print("sbsbaker:")
 	sbsbaker_commands = sbsbaker_get_commands()
 
@@ -65,6 +74,9 @@ def main():
 	file.write(sbsbaker_py)
 	file.close()
 
+	return 0
+
 
 if __name__ == "__main__":
-	main()
+	r = main()
+	sys.exit(r)
