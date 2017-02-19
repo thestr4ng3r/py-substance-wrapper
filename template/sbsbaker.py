@@ -1,17 +1,14 @@
 
 import subprocess
+import os.path
 
-from . import SubstanceBatchToolsNotFoundError
-
-
-sbsbaker_exec = None
+from . import get_tool_exec
 
 {% for cmd in sbsbaker_commands %}
 def {{ cmd["py_name"] }}( {% for arg in cmd["args"] %}
 		{{ arg["py_name"] }}=None{% if not loop.last %},{% endif %}{% endfor %}):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "{{ cmd["name"] }}"]
 	{% for arg in cmd["args"] %}

@@ -1,10 +1,8 @@
 
 import subprocess
+import os.path
 
-from . import SubstanceBatchToolsNotFoundError
-
-
-sbsbaker_exec = None
+from . import get_tool_exec
 
 
 def ambient_occlusion( 
@@ -31,8 +29,7 @@ def ambient_occlusion(
 		details=None,
 		spread=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "ambient-occlusion"]
 	
@@ -145,8 +142,7 @@ def ambient_occlusion_from_mesh(
 		normal_world_space=None,
 		normal_format=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "ambient-occlusion-from-mesh"]
 	
@@ -299,8 +295,7 @@ def bent_normal_from_mesh(
 		map_type=None,
 		normal_invert=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "bent-normal-from-mesh"]
 	
@@ -439,8 +434,7 @@ def color_from_mesh(
 		color_source=None,
 		color_generator=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "color-from-mesh"]
 	
@@ -550,8 +544,7 @@ def curvature(
 		enable_seams=None,
 		seams_power=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "curvature"]
 	
@@ -652,8 +645,7 @@ def curvature_from_mesh(
 		soft_saturate=None,
 		maximize_range=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "curvature-from-mesh"]
 	
@@ -770,8 +762,7 @@ def height_from_mesh(
 		antialiasing=None,
 		auto_normalize=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "height-from-mesh"]
 	
@@ -883,8 +874,7 @@ def normal_from_mesh(
 		map_type=None,
 		normal_invert=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "normal-from-mesh"]
 	
@@ -990,8 +980,7 @@ def normal_world_space(
 		normal_format=None,
 		normal_type=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "normal-world-space"]
 	
@@ -1077,8 +1066,7 @@ def opacity_mask_from_mesh(
 		match=None,
 		antialiasing=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "opacity-mask-from-mesh"]
 	
@@ -1178,8 +1166,7 @@ def position(
 		axis=None,
 		normalization=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "position"]
 	
@@ -1268,8 +1255,7 @@ def position_from_mesh(
 		axis=None,
 		normalization=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "position-from-mesh"]
 	
@@ -1391,8 +1377,7 @@ def texture_from_mesh(
 		map_type=None,
 		normal_invert=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "texture-from-mesh"]
 	
@@ -1526,8 +1511,7 @@ def thickness_from_mesh(
 		self_occlusion=None,
 		auto_normalize=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "thickness-from-mesh"]
 	
@@ -1653,8 +1637,7 @@ def uv_map(
 		padding=None,
 		mode=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "uv-map"]
 	
@@ -1733,8 +1716,7 @@ def world_space_direction(
 		direction_z=None,
 		direction_file=None):
 
-	if not sbsbaker_exec:
-		raise SubstanceBatchToolsNotFoundError()
+	sbsbaker_exec = get_tool_exec("sbsbaker")
 
 	args = [sbsbaker_exec, "world-space-direction"]
 	
